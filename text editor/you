@@ -1,0 +1,45 @@
+import pyperclip
+import re
+
+def extract_information(text, phone_regex, email_regex):
+    phone_matches = []
+    email_matches = []
+
+    # Regular expression for matching phone numbers
+    phoneRegex = re.compile(phone_regex, re.VERBOSE)
+
+    # Regular expression for matching email addresses
+    emailRegex = re.compile(email_regex, re.VERBOSE)
+
+    # Find all phone numbers in the text
+    for groups in phoneRegex.findall(text):
+        phone_num = '-'.join([group for group in groups if group])
+        phone_matches.append(phone_num)
+
+    # Find all email addresses in the text
+    email_matches = [groups[0] for groups in emailRegex.findall(text)]
+
+    return phone_matches, email_matches
+
+def main():
+    # Get user input for regular expressions and text
+    phone_regex = input("Enter the regular expression for matching phone numbers: ")
+    email_regex = input("Enter the regular expression for matching email addresses: ")
+    text = input("Enter the text from which you want to extract information: ")
+
+    # Extract information using the provided regular expressions
+    phone_matches, email_matches = extract_information(text, phone_regex, email_regex)
+
+    # Combine phone numbers and email addresses
+    all_matches = phone_matches + email_matches
+
+    # Copy results to the clipboard
+    if all_matches:
+        pyperclip.copy('\n'.join(all_matches))
+        print('Copied to clipboard:')
+        print('\n'.join(all_matches))
+    else:
+        print('No phone numbers or email addresses found.')
+
+if __name__ == "__main__":
+    main()
