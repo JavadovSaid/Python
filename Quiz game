@@ -1,0 +1,77 @@
+-	questions = (
+    "1. 1919-cu ildə Versal Sülh Konfransında təqdim olunan Millətlər Cəmiyyətinin yaradılması təklifi hansı əsas məqsədləri güdürdü?",
+    "2. 1932-ci ildə Almaniyada keçirilmiş seçkilərdə Adolf Hitlerin yüksəlişi hansı sosial-iqtisadi faktorlarla bağlı idi?",
+    "3. 1922-ci ildə Mussolini İtaliyada hakimiyyətə gələn zaman hansı siyasi strategiyalardan istifadə etdi?",
+    "4. 1939-cu ildə Sovet İttifaqı ilə Nasist Almaniyası arasında imzalanmış Molotov-Ribbentrop Paktının əsas məqsədləri nələr idi?",
+    "5. 1940-cı illərdə ABŞ-ın Marshall Planının əsas məqsədi nə idi və bu planın Avropa ölkələri üzərində uzunmüddətli təsirləri nələr oldu?",
+    "6. 1929-cu ildə Böyük Depressiyanın səbəbləri və dünya iqtisadiyyatlarına təsiri nə idi?",
+    "7. 1917-ci ildə Rusiyada baş vermiş Fevral və Oktyabr inqilabları arasında hansı əsas fərqlər var idi?",
+    "8. 1936-cı ildə baş verən Etiopiya-İtaliya müharibəsi beynəlxalq münasibətlərə necə təsir etdi və Millətlər Cəmiyyətinin bu müharibəyə reaksiyası nə oldu?",
+    "9. 1945-ci ildə Yalta Konfransında müttəfiq dövlətlər arasında müharibədən sonrakı dünya nizamının formalaşdırılması ilə bağlı hansı əsas qərarlar qəbul edildi?",
+    "10. II Dünya Müharibəsi dövründə ABŞ-ın müharibəyə son qoymaq məqsədilə Yaponiyaya atom bombası atmasının hərbi və etik təsirləri nələr idi?"
+)
+
+options = (
+    ('A) Millətlərarası münaqişələrin qarşısını almaq', 'B) İqtisadi əməkdaşlığı gücləndirmək',
+     'C) Diktator rejimlərinə qarşı mübarizə aparmaq', 'D) Yeni müharibələrə səbəb olmamaq'),
+    ('A) İşsizlik və inflyasiya', 'B) Xarici siyasətin uğursuzluğu', 'C) Dini faktorlar', 'D) Demokratik islahatlar'),
+    ('A) Faşizm ideologiyasının geniş yayılması', 'B) Kommunizmlə əməkdaşlıq', 'C) Monarxiyanı bərpa etmək',
+     'D) Daxili iqtisadi islahatlar'),
+    ('A) Müttəfiqlərin güclənməsinin qarşısını almaq', 'B) Şərqi Avropanı bölüşdürmək',
+     'C) İngiltərə ilə barışıq əldə etmək', 'D) Asiyaya nüfuz etmək'),
+    ('A) Avropa iqtisadiyyatlarını bərpa etmək', 'B) ABŞ-ın iqtisadi üstünlüyünü təmin etmək',
+     'C) Sovet təsirini azaltmaq', 'D) Asiyada ticarəti inkişaf etdirmək'),
+    ('A) Bank sektorunun zəifləməsi', 'B) Dövlət borclarının artması', 'C) Xarici ticarətin azalması',
+     'D) İqtisadiyyatın həddən artıq istehsal etməsi'),
+    ('A) Fevral inqilabı dinc baş tutmuşdu', 'B) Oktyabr inqilabı radikal idi',
+     'C) Hər ikisi təhsil islahatı ilə bağlı idi', 'D) Fevral inqilabı Sovet İttifaqının yaranmasına səbəb olmuşdu'),
+    ('A) İtaliyanın güclənməsi', 'B) Millətlər Cəmiyyətinin sanksiyaları', 'C) Böyük Britaniyanın dəstəyi',
+     'D) Afrikadakı müstəmləkəçilərin güclənməsi'),
+    ('A) BMT-nin yaradılması', 'B) Berlinin bölüşdürülməsi', 'C) Yaponiyanın işğalı', 'D) Soyuq müharibənin başlaması'),
+    ('A) İnsan itkisi', 'B) Siyasi təsir', 'C) Silahlanma yarışı', 'D) Yeni texnologiyaların inkişafı')
+)
+
+answers = (
+    'A',  # Millətlər Cəmiyyətinin əsas məqsədi
+    'A',  # Hitlerin yüksəlişi üzrə doğru cavab
+    'A',  # Mussolini'nin siyasi strategiyası
+    'B',  # Molotov-Ribbentrop Paktı üzrə doğru cavab
+    'A',  # Marshall Planının məqsədi
+    'D',  # Böyük Depressiyanın səbəbi
+    'B',  # Fevral və Oktyabr inqilablarının fərqi
+    'A',  # Etiopiya-İtaliya müharibəsi üzrə doğru cavab
+    'A',  # Yalta Konfransı üzrə doğru cavab
+    'A'  # Atom bombası atılmasının təsiri
+)
+
+question_num = 0
+score = 0
+guesses = []
+
+for question in questions:
+    print("---------------------------------")
+    print(question)
+    for option in options[question_num]:
+        print(option)
+
+    guess = input("Nə cavab verirsiniz (A,B,C,D)? ").upper()
+    while guess not in ('A', 'B', 'C', 'D'):
+        guess = input("Yanlış giriş. Xahiş edirik, A, B, C və ya D daxil edin: ").upper()
+
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score += 1
+        print("Düzgün cavab")
+    else:
+        print('Səhv cavab')
+        print(f"{answers[question_num]} düzgün cavabdır!")
+
+    question_num += 1
+
+print("\n------ Quiz Nəticələri ------")
+for i, (guess, answer) in enumerate(zip(guesses, answers), 1):
+    result = "Düzgün" if guess == answer else "Səhv"
+    print(f"Sual {i}: Sizin cavabınız: {guess}, Düzgün cavab: {answer} - {result}")
+
+print(f"\nSizin ümumi balınız: {score}/{len(questions)}")
+print(f"Cavab faizi: {(score / len(questions)) * 100:.2f}%")
