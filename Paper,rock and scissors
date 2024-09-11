@@ -1,0 +1,32 @@
+-	import random
+
+options = ('paper', 'rock', 'scissors')
+
+user_score = 0
+user_count = 0
+will = None
+while will != 'no':
+    while user_count < 5:
+        user = input("Enter your choice (paper, rock or scissors): ").lower()
+        if user not in options:
+            print("Choose an option from list!")
+            continue
+
+        computer_choice = random.choice(options)
+        print(f"Computer chose: {computer_choice}")
+
+        if user == computer_choice:
+            print('Equal!')
+        elif (user == "paper" and computer_choice == 'rock') or \
+                (user == "scissors" and computer_choice == 'paper') or \
+                (user == "rock" and computer_choice == 'scissors'):
+            print('You won!')
+            user_score += 1
+        else:
+            print("You lost!")
+
+        user_count += 1
+
+    print(f'You got: {user_score}')
+    will = input("Do you want to play again? If not, write 'no'")
+
