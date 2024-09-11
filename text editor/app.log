@@ -1,0 +1,15 @@
+2024-05-26 12:03:29,749 - root - DEBUG - This is a debug message
+2024-05-26 12:03:29,749 - root - INFO - This is an informational message
+2024-05-26 12:03:29,749 - root - WARNING - This is a warning message
+2024-05-26 12:03:29,749 - root - ERROR - This is an error message
+2024-05-26 12:03:29,749 - root - CRITICAL - This is a critical message
+2024-05-26 14:40:34,164 - root - DEBUG - This is a debug message
+2024-05-26 14:40:34,165 - root - INFO - This is an informational message
+2024-05-26 14:40:34,165 - root - WARNING - This is a warning message
+2024-05-26 14:40:34,165 - root - ERROR - This is an error message
+2024-05-26 14:40:34,166 - root - CRITICAL - This is a critical message
+2024-06-13 09:12:23,851 - root - DEBUG - This is a debug message
+2024-06-13 09:12:23,852 - root - INFO - This is an informational message
+2024-06-13 09:12:23,852 - root - WARNING - This is a warning message
+2024-06-13 09:12:23,852 - root - ERROR - This is an error message
+2024-06-13 09:12:23,852 - root - CRITICAL - This is a critical message
