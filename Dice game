@@ -1,0 +1,73 @@
+principal = 0
+rate = 0
+year = 0
+
+while principal <= 0:
+    principal = int(input("Principal: "))
+    if principal <= 0:
+        print("Principal can't be less than 0 and equal to 0!")
+
+while rate <= 0:
+    rate = int(input("Rate: "))
+    if rate <= 0:
+        print("Rate can't be less than 0 and equal to 0!")
+
+while year <= 0:
+    year = int(input("Year: "))
+    if year <= 0:
+        print("Years can't be less than 0 and equal to 0!")
+
+total = round(principal*pow(1+ rate/100,year),1)
+print(f"Your total gain will be {total} with principal:{principal},rate:{rate},time:{year}")
+-	-
+
+import random
+#● ┌ ─ ┐ │ └ ┘
+
+dice_art = {
+    1: ("┌─────────┐",
+        "│         │",
+        "│    ●    │",
+        "│         │",
+        "└─────────┘"),
+    2: ("┌─────────┐",
+        "│  ●      │",
+        "│         │",
+        "│      ●  │",
+        "└─────────┘"),
+    3: ("┌─────────┐",
+        "│  ●      │",
+        "│    ●    │",
+        "│      ●  │",
+        "└─────────┘"),
+    4: ("┌─────────┐",
+        "│  ●   ●  │",
+        "│         │",
+        "│  ●   ●  │",
+        "└─────────┘"),
+    5: ("┌─────────┐",
+        "│  ●   ●  │",
+        "│    ●    │",
+        "│  ●   ●  │",
+        "└─────────┘"),
+    6: ("┌─────────┐",
+        "│  ●   ●  │",
+        "│  ●   ●  │",
+        "│  ●   ●  │",
+        "└─────────┘")
+}
+dice = []
+total = 0
+num_of_dice = int(input("Enter num of dice: "))
+for die in range(num_of_dice):
+    dice.append(random.randint(1,6))
+print(dice)
+for line in range(5):
+    for die in dice:
+        print(dice_art.get(die)[line],end='')
+    print()
+
+for die in dice:
+    total+=die
+print(total)
+
