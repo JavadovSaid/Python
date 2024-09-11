@@ -1,0 +1,28 @@
+import random
+guess_count =0
+while True:
+    low_num= input("Enter low number: ")
+    if low_num.isdigit():
+        low_num = int(low_num)
+        break
+while True :
+    high_num = input("Enter high number: ")
+    if high_num.isdigit():
+        high_num = int(high_num)
+        break
+cum_guess = random.randint(low_num, high_num)
+while True:
+    user_guess = int(input("Enter your guess: "))
+    guess_count+=1
+    if user_guess>high_num or user_guess<low_num:
+        print("Your guess is out of range!!!")
+    elif user_guess > cum_guess:
+        print("Your guess is higher than computer guess!")
+    elif user_guess < cum_guess:
+        print("Your guess is lower than computer guess!")
+    else:
+        print('Correct')
+        break
+
+
+print(f"You found this guess in {guess_count} attempts")
