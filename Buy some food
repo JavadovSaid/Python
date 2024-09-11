@@ -1,0 +1,23 @@
+foods = []
+prices = []
+total = 0
+
+while True:
+    food = input("Enter the food which you want to buy, to quit (q): ").lower()
+    if food == 'q':
+        break
+    try:
+        price = float(input(f"Enter the price of {food}: "))
+    except ValueError:
+        print("Please enter a valid price.")
+        continue
+    foods.append(food)
+    prices.append(price)
+
+print("\n``````` WELCOME TO YOUR LAST DEAL ````````\n")
+print("Items Purchased:")
+for food, price in zip(foods, prices):
+    print(f"{food.capitalize()} - ${price:.2f}")
+
+total = sum(prices)
+print(f"\nYour total is: ${total:.2f}")
